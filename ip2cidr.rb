@@ -43,8 +43,7 @@ def iprange_tolist(iprange)
   iplist = []
   min = iprange[0].to_i(2)
   max = iprange[1].to_i(2)
-  temp = (min..max).to_a
-  temp.each { | x | iplist << "%032b" % x }
+  (min..max).to_a.each { | x | iplist << "%032b" % x }
   return iplist
 end
 
