@@ -133,10 +133,10 @@ while input_count < 2
 
   case 
   when input_count == 0  	
-    print "Input minimum IP Address: "
+    print "Input start IP Address: "
     user_input = gets.chomp
   when input_count == 1
-  	print  "Input maximum IP Address: "  
+  	print  "Input end IP Address: "  
   	user_input = gets.chomp
   end
   STDOUT.flush
