@@ -54,7 +54,7 @@ def iprange2cidr(startip, endip)
       maxsize -= 1
     end
 
-    x = Math.log(endaddr - startaddr + 1) / 0.6931471805599453 # Math.log(2)
+    x = Math.log(endaddr - startaddr + 1) / Math.log(2)
     maxdiff = 32 - x.floor
     if maxsize < maxdiff
       maxsize = maxdiff 
@@ -66,6 +66,9 @@ def iprange2cidr(startip, endip)
 
   return cidrlist
 end
+
+# TEST CASES
+puts "TEST CASES:\n\n"
 
 # Test cases for ipstring2long
 puts "Test cases for ipstring2long."
@@ -92,7 +95,7 @@ puts ""
 # Test cases for iprange2cidr
 puts "Test cases for iprange2cidr"
 puts iprange2cidr("192.168.0.0", "192.168.0.7")
-puts ""  
+puts ""
 puts iprange2cidr("192.168.0.0", "255.168.0.7")
 puts ""
 puts iprange2cidr("192.168.0.1", "192.168.0.1")
