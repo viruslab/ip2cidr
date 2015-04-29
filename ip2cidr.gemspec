@@ -12,3 +12,4 @@ Gem::Specification.new do |s|
   s.homepage            = %q{http://rubygems.org/gems/iptocidr}
   s.license             = ''
 end
+
