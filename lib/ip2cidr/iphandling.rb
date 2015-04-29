@@ -7,12 +7,13 @@ class IPHandling
     for i in 0..3
       longip[i] = ipstring[i].to_i
     end
+
     #return longip
     return (longip[0] << 24) + (longip[1] << 16) + 
            (longip[2] << 8) + longip[3]
   end
 
-  # long_to_ip_stringexit
+  # long_to_ipstring
   # Convert an ip address in integer format to string.
   def long_to_ipstring(longip)
     ipstring = ""
