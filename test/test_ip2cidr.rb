@@ -2,24 +2,24 @@ require 'test/unit'
 require 'ip2cidr'
 
 class IPToCIDRTest < Test::Unit::TestCase
-	def test_ipstring_to_long
-		assert_equal 0xc0a80001, IPToCIDR.ipstring_to_long("192.168.0.1").to_s(16)
-		assert_equal 0xffffffff, IPToCIDR.ipstring_to_long("255.255.255.255").to_s(16)
-		assert_equal 0x00000000, IPToCIDR.ipstring_to_long("0.0.0.0").to_s(16)
-		assert_equal 0xfefefefe, IPToCIDR.ipstring_to_long("254.254.254.254").to_s(16)
-		assert_equal 0x18ff0701, IPToCIDR.ipstring_to_long("24.255.7.1").to_s(16)
-		assert_equal 0xc23f0f60, IPToCIDR.ipstring_to_long("194.63.15.96").to_s(16)
-		assert_equal 0x2ef653ca, IPToCIDR.ipstring_to_long("46.246.83.202").to_s(16)
-	end
-	
-	def test_long_to_ip_string
-		assert_equal "192.168.0.1",     IPToCIDR.long_to_ip_string(0xc0a80001)
-        assert_equal "255.255.255.255", IPToCIDR.long_to_ip_string(0xffffffff)
-        assert_equal "0.0.0.0",         IPToCIDR.long_to_ip_string(0x00000000)
-        assert_equal "254.254.254.254", IPToCIDR.long_to_ip_string(0xfefefefe)
-        assert_equal "24.255.7.1",      IPToCIDR.long_to_ip_string(0x18ff0701)
-        assert_equal "194.63.15.96",    IPToCIDR.long_to_ip_string(0xc23f0f60)
-        assert_equal "46.246.83.202",   IPToCIDR.long_to_ip_string(0x2ef653ca)
+  def test_ipstring_to_long
+    assert_equal 0xc0a80001, IPToCIDR.ipstring_to_long("192.168.0.1").to_s(16)
+    assert_equal 0xffffffff, IPToCIDR.ipstring_to_long("255.255.255.255").to_s(16)
+    assert_equal 0x00000000, IPToCIDR.ipstring_to_long("0.0.0.0").to_s(16)
+    assert_equal 0xfefefefe, IPToCIDR.ipstring_to_long("254.254.254.254").to_s(16)
+    assert_equal 0x18ff0701, IPToCIDR.ipstring_to_long("24.255.7.1").to_s(16)
+    assert_equal 0xc23f0f60, IPToCIDR.ipstring_to_long("194.63.15.96").to_s(16)
+    assert_equal 0x2ef653ca, IPToCIDR.ipstring_to_long("46.246.83.202").to_s(16)
+  end
+
+  def test_long_to_ip_string
+    assert_equal "192.168.0.1",     IPToCIDR.long_to_ip_string(0xc0a80001)
+    assert_equal "255.255.255.255", IPToCIDR.long_to_ip_string(0xffffffff)
+    assert_equal "0.0.0.0",         IPToCIDR.long_to_ip_string(0x00000000)
+    assert_equal "254.254.254.254", IPToCIDR.long_to_ip_string(0xfefefefe)
+    assert_equal "24.255.7.1",      IPToCIDR.long_to_ip_string(0x18ff0701)
+    assert_equal "194.63.15.96",    IPToCIDR.long_to_ip_string(0xc23f0f60)
+    assert_equal "46.246.83.202",   IPToCIDR.long_to_ip_string(0x2ef653ca)
 	end
 
   def test_iprange_to_cidr
