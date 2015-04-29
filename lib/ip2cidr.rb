@@ -1,7 +1,7 @@
-class IPtoCIDR
-  # IPString2Long 
+class IPToCIDR
+  # ipstring_to_long 
   # Convert an ip address in string format to integer.
-  def self.IPString2Long(ipstring)
+  def self.ipstring_to_long(ipstring)
     ipstring = ipstring.split(".")
     longip = Array.new(4)
     for i in 0..3
@@ -12,9 +12,9 @@ class IPtoCIDR
            (longip[2] << 8) + longip[3]
   end
 
-  # Long2IPString
+  # long_to_ip_string
   # Convert an ip address in integer format to string.
-  def self.Long2IPString(longip)
+  def self.long_to_ip_string(longip)
     ipstring = ""
     ipstring = (longip >> 24).to_s + "." + 
                ((longip & 0x00FFFFFF)>> 16).to_s + "." + 
@@ -23,10 +23,10 @@ class IPtoCIDR
     return ipstring
   end
 
-  # IPRange2CIDR
+  # iprange_to_cidr
   # Return a list of cidr addresses given a range of ip 
   # addresses.
-  def self.IPRange2CIDR(startip, endip)
+  def self.iprange_to_cidr(startip, endip)
     cidr2mask = [0x00000000, 0x80000000, 0xC0000000, 
                  0xE0000000, 0xF0000000, 0xF8000000, 
                  0xFC000000, 0xFE000000, 0xFF000000, 
@@ -38,8 +38,8 @@ class IPtoCIDR
                  0xFFFFFF00, 0xFFFFFF80, 0xFFFFFFC0, 
                  0xFFFFFFE0, 0xFFFFFFF0, 0xFFFFFFF8, 
                  0xFFFFFFFC, 0xFFFFFFFE, 0xFFFFFFFF]
-    startaddr =  IPString2Long(startip)
-    endaddr = IPString2Long (endip)
+    startaddr =  ipstring_to_long(startip)
+    endaddr = ipstring_to_long (endip)
     cidrlist = Array.new
 
     while endaddr >= startaddr
@@ -48,20 +48,16 @@ class IPtoCIDR
         mask = cidr2mask[maxsize - 1]
         maskedbase = startaddr & mask
 
-        if maskedbase != startaddr
-           break
-        end
+        break if maskedbase != startaddr
 
         maxsize -= 1
       end
 
       x = Math.log(endaddr - startaddr + 1) / Math.log(2)
       maxdiff = 32 - x.floor
-      if maxsize < maxdiff
-        maxsize = maxdiff 
-      end
+      maxsize = maxdiff if maxsize < maxdiff
 
-      cidrlist.push(Long2IPString(startaddr) + "/" + maxsize.to_s)
+      cidrlist.push(long_to_ip_string(startaddr) + "/" + maxsize.to_s)
       startaddr += 2**(32 - maxsize)
     end
 
