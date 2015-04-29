@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name                = "ip2cidr"
-  s.version             = "0.0.0"
+  s.version             = "0.0.1"
   s.date                = %q{2015-04-28}
   s.summary             = %q{Converts IP Range to CIDR}
   s.description         = %q{Converts a range of IP Adrresses to a list of CIDR Adresses}
