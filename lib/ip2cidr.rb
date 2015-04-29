@@ -1,7 +1,7 @@
 class IPToCIDR
   # ipstring_to_long 
   # Convert an ip address in string format to integer.
-  def ipstring_to_long(ipstring)
+  def self.ipstring_to_long(ipstring)
     ipstring = ipstring.split(".")
     longip = Array.new(4)
     for i in 0..3
@@ -14,7 +14,7 @@ class IPToCIDR
 
   # long_to_ip_string
   # Convert an ip address in integer format to string.
-  def long_to_ip_string(longip)
+  def self.long_to_ip_string(longip)
     ipstring = ""
     ipstring = (longip >> 24).to_s + "." + 
                ((longip & 0x00FFFFFF)>> 16).to_s + "." + 
