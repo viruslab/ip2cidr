@@ -1,7 +1,7 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'ip2cidr'
 
-class IPToCIDRTest < Test::Unit::TestCase
+class IPToCIDRTest < Minitest::Test
 
   def test_solveCIDR
     test1 = ["192.168.0.0/29"]

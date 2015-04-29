@@ -57,7 +57,7 @@ class IPHandling
       maxdiff = 32 - x.floor
       maxsize = maxdiff if maxsize < maxdiff
 
-      cidrlist.push(long_to_ip_string(startaddr) + "/" + maxsize.to_s)
+      cidrlist.push(long_to_ipstring(startaddr) + "/" + maxsize.to_s)
       startaddr += 2**(32 - maxsize)
     end
 
