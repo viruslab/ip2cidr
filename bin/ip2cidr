@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'ip2cidr'
+puts IPToCIDR.solveCIDR("#{ARGV[0]}", "#{ARGV[1]}")
