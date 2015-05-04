@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name                = "ip2cidr"
-  s.version             = "0.0.2"
+  s.version             = "0.0.3"
   s.executables         << 'ip2cidr'
   s.date                = %q{2015-04-28}
   s.summary             = %q{Converts IP Range to CIDR}
