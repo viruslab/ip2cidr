@@ -41,6 +41,10 @@ class IPHandling
                  0xFFFFFFFC, 0xFFFFFFFE, 0xFFFFFFFF]
     startaddr =  ipstring_to_long(startip)
     endaddr = ipstring_to_long (endip)
+
+    # Check if Ending IP Address is greater than Starting IP Address
+    raise ArgumentError, 'Starting IP must be less than the end IP' unless startaddr < endaddr
+
     cidrlist = Array.new
 
     while endaddr >= startaddr

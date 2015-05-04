@@ -15,11 +15,16 @@ class IPToCIDR
     cidr = IPHandling.new
 
     # Check if IP Starting Address is valid
-    raise ArgumentError, 'IP Address is not valid' unless startip.split(".").length == 4
+    raise ArgumentError, 'IP address is not valid' unless startip.split(".").length == 4
     
     # Check if Ending IP Address is valid
-    raise ArgumentError, 'IP Address is not valid' unless endip.split(".").length == 4
+    raise ArgumentError, 'IP address is not valid' unless endip.split(".").length == 4
+   
+    raise ArgumentError, 'Special IP address error' if 
+      (startip == "0.0.0.0") || (endip == "0.0.0.0") || 
+        (startip == "255.255.255.255") || (endip == "255.255.255.255")
+
     
-    cidr.iprange_to_cidr(startip,endip)
+    cidr.iprange_to_cidr(startip, endip)
   end
 end
