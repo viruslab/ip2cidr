@@ -34,7 +34,7 @@ $ ip2cidr 192.168.0.1 192.168.0.16
 192.168.0.16/32
 ```
 
-This gem cannot use either 0.0.0.0 or 255.255.255.255 as inputs and will return an ArgumentError if the are used as inputs.
+This gem cannot use either 0.0.0.0 or 255.255.255.255 as inputs and will return an ArgumentError if they are used as inputs.
 
 ## Authors
 
