@@ -38,4 +38,6 @@ This gem cannot use either 0.0.0.0 or 255.255.255.255 as inputs and will return 
 
 ## Authors
 
-Carlo Niño A. Bitoon, Kirk Gandril B. Madraga, John Patrick Suelto
+Carlo Niño A. Bitoon
+Kirk Gandril B. Madraga
+John Patrick Suelto
